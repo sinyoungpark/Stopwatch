@@ -12,7 +12,6 @@ button.addEventListener("click", () => {
 
   if(button.classList.contains("active")){
     timer = setInterval(() => {
-      let result = "";
       s++;
 
       if(s >= 60){
@@ -27,12 +26,9 @@ button.addEventListener("click", () => {
         h = 0;
       }
 
-      h < 10 ? result += "0" + h + ":" : result += h + ":";
-      m < 10 ? result += "0" + m + ":" : result += m + ":";
-      s < 10 ? result += "0" + s : result += s;
-      screen.innerText = result;
+      screen.innerText = `${String(h).padStart(2,"0")}:${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
     }, 1000);
-    
+
   } else {
     clearInterval(timer);
     screen.innerText = "00:00:00";
